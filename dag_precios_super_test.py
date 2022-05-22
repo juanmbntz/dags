@@ -56,8 +56,10 @@ send_email = EmailOperator(
 push_to_github = BashOperator(
     task_id="push_files",
     dag=dag,
-    bash_command='export msg="hola" \
-                  echo $msg '
+    bash_command='cd /home/bjuanm/airflow/dags/ &&\
+                  git add . &&\
+                  git commit -m "push del dia" &&\
+                  git push origin master'
 )
 
 start_task >> scraping_prices >> send_email >> push_to_github
