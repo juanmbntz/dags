@@ -56,10 +56,17 @@ send_email = EmailOperator(
 push_to_github = BashOperator(
     task_id="push_files",
     dag=dag,
-    bash_command='cd /home/bjuanm/airflow/dags/ &&\
-                  git add . &&\
-                  git commit -m "push del dia" &&\
-                  git push origin master'
+    bash_command="""
+                cd /home/bjuanm/airflow/dags/ &&\
+                git add . &&\
+                git commit -m "push del dia" &&\
+                git push origin master &&\
+                expect "Username for 'https://github.com':" &&\
+                send --"juanmbntz\r" &&\
+                expect "Password for 'https://juanmbntz@github.com':" &&\
+                send --"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\r" &&\
+                interact
+"""
 )
 
 start_task >> scraping_prices >> send_email >> push_to_github
