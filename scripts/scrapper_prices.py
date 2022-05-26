@@ -370,6 +370,32 @@ def scrap_prices():
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-cera-depilatoria-perlas-vegetal-millefiori-fwp-100-grm/_/A-00503554-00503554-200'
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-cera-depilatoria-vegetal-millefiori-lat-200-grm/_/A-00503555-00503555-200'
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-crema-depil-piel-sensible-veet-est-100-ml/_/A-00180129-00180129-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-leche-entera-3-tenor-graso-lechelita-sch-1-ltr/_/A-00518044-00518044-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-yogur-bebible-entero-vainilla-lechelita-sch-900-grm/_/A-00527826-00527826-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-manteca-tonadita-baja-en-lactosa-200-gr/_/A-00481466-00481466-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-manteca-tonadita-baja-en-lactosa-200-gr/_/A-00481466-00481466-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-manteca-multivitaminas-la-serenisima-200gr/_/A-00495534-00495534-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-rollo-de-cocina-campanita-180-panos-paquete-3-unidades/_/A-00224749-00224749-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-yerba-mate-suave-playadito-500-gr/_/A-00502007-00502007-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-azucar-superior-real-ledesma-paq-1-kgm/_/A-00218834-00218834-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-variedad-surtidas-terrabusi-paq-170-grm/_/A-00532286-00532286-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-galletitas-crackers-clasicas-express-paq-101-grm/_/A-00521346-00521346-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-pan-blanco-fargo-rodajas-finas-bsa-560-grm/_/A-00268428-00268428-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-pan-de-mesa-blanco-lactal-bsa-500-grm/_/A-00530650-00530650-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-pan-blanco--bimbo-bsa-550-grm/_/A-00495379-00495379-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-jamon-cocido-feteado-primera-marc-xkg/_/A-00035168-00035168-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-queso-de-maquina--xkg-1-kgm/_/A-00040612-00040612-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-muzzarella--dona-aurora-xkg/_/A-00019971-00019971-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-huevo-blanco-grand--cja-12-uni/_/A-00022865-00022865-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-hamburguesas-swift--12-uni-x-80-gr-clasicas/_/A-00290730-00290730-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-tirabuzon-lucchetti-------paquete-500-gr/_/A-00461486-00461486-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-pure-de-tomate-salsati-tetrabrik-520-gr/_/A-00169714-00169714-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-pulpa-de-tomate-salsati-tetrabrik-520-gr/_/A-00169716-00169716-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-tapa-p-pascualina-sin-tacc-la-saltena-fwp-380-grm/_/A-00470274-00470274-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-harina-trigo-000-morixe-paq-1-kgm/_/A-00480051-00480051-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-agua-mineralizada-artificialmente-con-gas-bajo-en-sodio-cellier-2-l/_/A-00479242-00479242-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-galletitas--criollitas-paq-300-grm/_/A-00099168-00099168-200'
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-galletitas-crackers-clasicas-media-tarde-pack-familiar-x3-unidades-paq-315-grm/_/A-00532069-00532069-200'
         
        ]
 
@@ -379,7 +405,7 @@ def scrap_prices():
 
     df_historia = pd.read_csv("/home/bjuanm/airflow/dags/files/precios_coto.csv")
 
-    for url in urls:
+    for url in set(urls):
         try:
             html_content = requests.get(url).text
 
