@@ -30,7 +30,6 @@ def scrap_prices():
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-muzzarella--dona-aurora-xkg/_/A-00019971-00019971-200'
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-huevo-blanco-grand--cja-12-uni/_/A-00022865-00022865-200'
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-hamburguesas-swift--12-uni-x-80-gr-clasicas/_/A-00290730-00290730-200'
-        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-tirabuzon-lucchetti-------paquete-500-gr/_/A-00461486-00461486-200'
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-pure-de-tomate-salsati-tetrabrik-520-gr/_/A-00169714-00169714-200'
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-pulpa-de-tomate-salsati-tetrabrik-520-gr/_/A-00169716-00169716-200'
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-tapa-p-pascualina-sin-tacc-la-saltena-fwp-380-grm/_/A-00470274-00470274-200'
@@ -38,7 +37,7 @@ def scrap_prices():
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-agua-mineralizada-artificialmente-con-gas-bajo-en-sodio-cellier-2-l/_/A-00479242-00479242-200'
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-galletitas--criollitas-paq-300-grm/_/A-00099168-00099168-200'
         ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-galletitas-crackers-clasicas-media-tarde-pack-familiar-x3-unidades-paq-315-grm/_/A-00532069-00532069-200'
-        
+        ,'https://www.cotodigital3.com.ar/sitios/cdigi/producto/-tirabuzon-lucchetti-----paquete-500-gr/_/A-00265553-00265553-200'
        ]
 
     #Definiciones para la corrida diaria

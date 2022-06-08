@@ -15,7 +15,7 @@ def calc_increment():
     fecha_folder = datetime.today().strftime('%Y%m')
 
     #Levantamos el ultimo archivo actualizado al dia anterior
-    df_historia = pd.read_csv("/home/bjuanm/airflow/dags/files/precios_coto_bda.csv")   
+    df_historia = pd.read_csv("/home/bjuanm/airflow/dags/files/precios_coto.csv")   
 
     df_final = pd.DataFrame(columns = ['fecha','nombre_producto','precio_dia','precio_regular','incremento_diario','incremento_semanal'])
 
@@ -29,4 +29,4 @@ def calc_increment():
 
 
 
-    df_final.to_csv("/home/bjuanm/airflow/dags/files/precios_coto_increm_bda.csv", index = False)
+    df_final.to_csv("/home/bjuanm/airflow/dags/files/precios_coto_increm.csv", index = False)
