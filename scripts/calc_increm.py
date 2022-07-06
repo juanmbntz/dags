@@ -17,7 +17,7 @@ def calc_increment():
     #Levantamos el ultimo archivo actualizado al dia anterior
     df_historia = pd.read_csv("/home/bjuanm/airflow/dags/files/precios_coto.csv")   
 
-    df_final = pd.DataFrame(columns = ['fecha','nombre_producto','precio_dia','precio_regular','incremento_diario','incremento_semanal'])
+    df_final = pd.DataFrame(columns = ['fecha','plu','nombre_producto','precio_dia','precio_regular','incremento_diario','incremento_semanal'])
 
     for producto in df_historia.nombre_producto.unique():
         df_incremento = df_historia[df_historia['nombre_producto'] == producto].sort_values(by='fecha', ascending=True)

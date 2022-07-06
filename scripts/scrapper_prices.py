@@ -413,16 +413,18 @@ def scrap_prices():
             price_html = soup.find_all('span', class_="atg_store_productPrice")
             price_regular_html = soup.find_all('span', class_="price_regular_precio")
             name_html = soup.find('h1', {'class': 'product_page'})
+            plu_html = soup.find('span', {'class': 'span_codigoplu'})
 
             product_price = float(str(price_html).split('$')[1].split('\n')[0].replace(',','.'))
-            product_name = name_html.text.replace('\n','').replace('\t','').replace('\r','')
+            product_name = name_html.text.replace('\n','').replace('\t','').replace('\r','').lower().strip().replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u')
+            product_plu = plu_html.text.strip()
 
             if price_regular_html == []: #si hay oferta, usamos el precio regular, si no, el precio del dia es el precio regular
                 price_regular = product_price
             else: 
                 price_regular = float(price_regular_html[0].text.split('$')[1])
 
-            to_append = [fecha, product_name, product_price, price_regular]
+            to_append = [fecha, product_plu, product_name, product_price, price_regular]
             row = pd.Series(to_append, index = df_historia.columns)
             df_historia = df_historia.append(row, ignore_index = True)
 
