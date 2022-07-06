@@ -16,6 +16,7 @@ import re
 from datetime import datetime
 import os
 from scripts.scrapper_prices import scrap_prices
+from scripts.calc_increm import calc_increment
 
 dag = DAG(
     dag_id="scrapper_supermercado",
@@ -43,14 +44,21 @@ scraping_prices = PythonOperator(
     python_callable=scrap_prices
 )
 
+calc_increm = PythonOperator(
+    task_id='calc_increm',
+    dag=dag,
+    python_callable=calc_increment
+)
 
 send_email = EmailOperator(
         task_id="send_email",
         dag=dag,
         to=["juanmbntz@gmail.com","laralopezcalvo13@gmail.com"],
-        subject="data_pipeline_supermercado",
-        files=["/home/bjuanm/airflow/dags/files/precios_coto.csv"],
+        subject="data_pipeline_supermercado - incrementos de precios",
+        files=["/home/bjuanm/airflow/dags/files/precios_coto_increm.csv"],
         html_content=f" <h3>Corrida del dia {datetime.today().strftime('%Y-%m-%d')}</h3>"
 )
 
-start_task >> scraping_prices >> send_email 
+
+
+start_task >> scraping_prices >> calc_increm >> send_email 

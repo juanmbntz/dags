@@ -24,7 +24,7 @@ dag = DAG(
     max_active_runs=1,
     catchup=False,
     start_date=datetime(2022, 5, 25, 0 ,0),
-    schedule_interval="30 0 * * *",
+    schedule_interval="15 0 * * *",
     default_args={
         "owner": "jmbenitez",
         "email": "juanmbntz@gmail.com",
@@ -55,7 +55,7 @@ calc_increm = PythonOperator(
 send_email = EmailOperator(
         task_id="send_email",
         dag=dag,
-        to=["juanmbntz@gmail.com"],#,"laralopezcalvo13@gmail.com"],
+        to=["juanmbntz@gmail.com","laralopezcalvo13@gmail.com"],
         subject="precios_bda_incrementos",
         files=["/home/bjuanm/airflow/dags/files/precios_coto_increm_bda.csv"],
         html_content=f" <h3>Corrida del dia {datetime.today().strftime('%Y-%m-%d')}</h3>"
